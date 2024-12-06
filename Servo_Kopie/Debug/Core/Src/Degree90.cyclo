@@ -1,0 +1,2 @@
+../Core/Src/Degree90.c:11:6:Degree90_Init	1
+../Core/Src/Degree90.c:18:6:Degree90_ReadADCAndControlServo	5

@@ -1,0 +1,2 @@
+../Core/Src/Degree90.c:11:6:Degree90_Init	24	static
+../Core/Src/Degree90.c:18:6:Degree90_ReadADCAndControlServo	88	static
