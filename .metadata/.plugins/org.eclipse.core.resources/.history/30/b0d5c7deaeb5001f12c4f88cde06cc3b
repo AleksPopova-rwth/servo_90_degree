@@ -1,0 +1,17 @@
+/*
+ * Degree5.h
+ *
+ *  Created on: Dec 8, 2024
+ *      Author: sasha
+ */
+
+#ifndef DEGREE5_H_
+#define DEGREE5_H_
+
+class Degree5 {
+public:
+	Degree5();
+	virtual ~Degree5();
+};
+
+#endif /* DEGREE5_H_ */

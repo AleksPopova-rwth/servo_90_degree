@@ -1,0 +1,19 @@
+/*
+ * Degree5.c
+ *
+ *  Created on: Dec 8, 2024
+ *      Author: sasha
+ */
+
+#include "Degree5.h"
+
+Degree5::Degree5()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+Degree5::~Degree5()
+{
+	// TODO Auto-generated destructor stub
+}

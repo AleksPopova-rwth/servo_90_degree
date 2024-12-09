@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Degree90.h"
+#include "Degree5.h"
+
 #include "stdio.h"
 
 /* USER CODE END Includes */
@@ -91,17 +93,6 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	void set_servo_angle(uint16_t angle)
-	{
-	    // Переводим угол в длительно�?ть импуль�?а (1-2 м�?)
-	    float pulse_width =250 + (10000 / 180.0) * angle; // Ширина импуль�?а в м�?
-	   //uint16_t ccr_value = (pulse_width / 20.0) * 20000; // Ра�?�?читываем значение CCR
-	    uint32_t timer_frequency = HAL_RCC_GetPCLK1Freq() / ((htim2.Init.Prescaler + 1) * (htim2.Init.Period + 1));
-	    uint16_t ccr_value = (pulse_width * timer_frequency);
-	    TIM2->CCR1 = ccr_value;
-
-	    //TIM2->CCR1 = (uint16_t)pulse_width; // У�?танавливаем значение CCR
-	}
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -132,8 +123,13 @@ int main(void)
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
-  Degree90 degree90Controller;
-  Degree90_Init(&degree90Controller, &hadc1, &hadc2, &htim2, &huart3);
+
+  //Degree90 degree90Controller;
+  //Degree90_Init(&degree90Controller, &hadc1, &hadc2, &htim2, &huart3);
+
+  Degree5 degree5Controller;
+  Degree5_Init(&degree5Controller, &hadc1, &hadc2, &htim2, &huart3);
+
 
   /* USER CODE END 2 */
 
@@ -142,46 +138,9 @@ int main(void)
   while (1)
   {
 
-      Degree90_ReadADCAndControlServo(&degree90Controller);
+      //Degree90_ReadADCAndControlServo(&degree90Controller);
+      Degree5_ReadADCAndControlServo(&degree5Controller);
 
-	  // Read from ADC1
-//	    HAL_ADC_Start(&hadc1);
-//	    if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK) {
-//	        raw1 = HAL_ADC_GetValue(&hadc1);
-//	        sprintf(msg, "%hu\r\n", raw1);
-//	        HAL_UART_Transmit(&huart3, (uint8_t*)ip_1, strlen(ip_1), HAL_MAX_DELAY);
-//	        HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-//	        //set_servo_angle(raw1 / 16);  // Map ADC value to servo angle
-//	        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, (raw1 > 2048) ? RESET : SET);
-//	    }
-//
-//	    HAL_Delay(100);
-//
-//	    // Read from ADC2
-//	    HAL_ADC_Start(&hadc2);
-//	    if (HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY) == HAL_OK) {
-//	        raw2 = HAL_ADC_GetValue(&hadc2);
-//	        sprintf(msg, "%hu\r\n", raw2);
-//	        HAL_UART_Transmit(&huart3, (uint8_t*)ip_2, strlen(ip_2), HAL_MAX_DELAY);
-//	        HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-//	        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, (raw2 > 2048) ? RESET : SET);
-//	    }
-//
-//	    HAL_Delay(100);
-//
-//	    if (raw1>raw2)
-//	    {
-//	    	TIM2->CCR1 = 250;
-//  //set_servo_angle(90); // Поворачиваем на 90 граду�?ов
-//	    }
-//	    else if(raw1<raw2)
-//	    {
-//	    	TIM2->CCR1 = 1250;
-//	    }
-//	    else TIM2->CCR1 = 750;
-//
-//  //set_servo_angle(0); // Возвращаем в начальное положение
-//  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

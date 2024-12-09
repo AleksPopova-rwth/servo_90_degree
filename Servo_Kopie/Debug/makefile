@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: Servo_Kopie.elf secondary-outputs
 
 # Tool invocations
-Servo_Kopie.elf Servo_Kopie.map: $(OBJS) $(USER_OBJS) /home/alexp/Aachen/Workspace_NEW_Servo/Servo_Kopie/STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Servo_Kopie.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/alexp/Aachen/Workspace_NEW_Servo/Servo_Kopie/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Servo_Kopie.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Servo_Kopie.elf Servo_Kopie.map: $(OBJS) $(USER_OBJS) /home/sasha/STM_Projects/RWTH/Workspace_NEW_Servo/Servo_Kopie/STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Servo_Kopie.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/sasha/STM_Projects/RWTH/Workspace_NEW_Servo/Servo_Kopie/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Servo_Kopie.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

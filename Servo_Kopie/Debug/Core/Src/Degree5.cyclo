@@ -1,0 +1,4 @@
+../Core/Src/Degree5.c:15:6:Degree5_Init	1
+../Core/Src/Degree5.c:23:10:Degree5_ReadADC	2
+../Core/Src/Degree5.c:32:6:Degree5_SetServoPosition	17
+../Core/Src/Degree5.c:93:6:Degree5_ReadADCAndControlServo	4
